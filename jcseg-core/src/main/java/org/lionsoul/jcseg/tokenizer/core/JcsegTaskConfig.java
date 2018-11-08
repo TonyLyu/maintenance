@@ -108,6 +108,9 @@ public class JcsegTaskConfig implements Cloneable
     //the currently used lexicon properties file
     private String pFile = null;
     
+  //jcseg配置文件所在的es集群中的节点的名字
+    private String esNodeName = "defaultName";
+    
     /**
      * create the config and do nothing about initialize
      * Note: this may cuz Incompatibility problems for the old version
@@ -306,6 +309,13 @@ public class JcsegTaskConfig implements Cloneable
         //load the keep punctuation
         if ( lexPro.getProperty("jcseg.keeppunctuations") != null )
             KEEP_PUNCTUATIONS = lexPro.getProperty("jcseg.keeppunctuations");
+        
+        if ( lexPro.getProperty("jcseg.appendpinyin") != null 
+            	&& lexPro.getProperty("jcseg.appendpinyin").equals("1"))
+    		APPEND_CJK_PINYIN = true;
+    		
+		if ( lexPro.getProperty("jcseg.nodename") != null )
+            esNodeName = lexPro.getProperty("jcseg.nodename");
     }
     
     /**return the lexicon directory path*/
@@ -541,5 +551,13 @@ public class JcsegTaskConfig implements Cloneable
     {
         return (JcsegTaskConfig) super.clone();
     }
+    
+    public String getEsNodeName() {
+		return esNodeName;
+	}
+
+	public void setEsNodeName(String esNodeName) {
+		this.esNodeName = esNodeName;
+	}
     
 }
