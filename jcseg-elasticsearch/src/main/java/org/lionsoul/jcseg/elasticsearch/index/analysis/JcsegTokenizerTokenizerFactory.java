@@ -25,7 +25,8 @@ public class JcsegTokenizerTokenizerFactory extends AbstractTokenizerFactory
             IndexSettings indexSettings, Environment environment, String name, Settings settings) {
         super(indexSettings, name, settings);
         
-        File proFile = new File(settings.get("config_file", CommonUtil.JcsegConfigFile));
+//        File proFile = new File(settings.get("config_file", CommonUtil.JcsegConfigFile));
+        File proFile = new File(settings.get("config_file", environment.pluginsFile() + "/" + CommonUtil.JcsegConfigFile));//xwz
         config = proFile.exists() ? new JcsegTaskConfig(proFile.getPath()) : new JcsegTaskConfig(true);
         mode = CommonUtil.getSegMode(settings, JcsegTaskConfig.SEARCH_MODE);
         dic  = DictionaryFactory.createSingletonDictionary(config);
