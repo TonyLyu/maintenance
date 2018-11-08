@@ -26,7 +26,8 @@ public abstract class JcsegAnalyzerProvider extends AbstractIndexAnalyzerProvide
     {
         super(indexSettings, name, settings);
         
-        File proFile = new File(settings.get("config_file", CommonUtil.JcsegConfigFile));
+//        File proFile = new File(settings.get("config_file", CommonUtil.JcsegConfigFile));
+        File proFile = new File(settings.get("config_file", env.pluginsFile() + "/" + CommonUtil.JcsegConfigFile));//xwz
         analyzer = proFile.exists() ? 
             new JcsegAnalyzer(this.getSegMode(), proFile.getPath()) : 
                 new JcsegAnalyzer(this.getSegMode());
