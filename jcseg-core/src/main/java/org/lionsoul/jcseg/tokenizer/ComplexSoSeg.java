@@ -33,19 +33,19 @@ import org.lionsoul.jcseg.util.NumericUtil;
  * 
  * @author  chenxin<chenxin619315@gmail.com>
 */
-public class ComplexSeg extends ASegment
+public class ComplexSoSeg extends ASegment
 {
     
-    public ComplexSeg( JcsegTaskConfig config, ADictionary dic ) throws IOException 
+    public ComplexSoSeg( JcsegTaskConfig config, ADictionary dic ) throws IOException 
     {
         super(config, dic);
     }
     
-    public ComplexSeg( Reader input, JcsegTaskConfig config, ADictionary dic ) throws IOException 
+    public ComplexSoSeg( Reader input, JcsegTaskConfig config, ADictionary dic ) throws IOException 
     {
         super(input, config, dic);
     }
-    
+
     /**
      * get the next CJK word from the current position of the input stream
      * 
@@ -200,7 +200,7 @@ public class ComplexSeg extends ASegment
                 
                 if ( w != null ) {
                     cjkidx += w.getLength();
-                    appendWordFeatures(w);
+//                    appendWordFeatures(w);//xwz
                     continue;
                 }
             }
@@ -295,7 +295,7 @@ public class ComplexSeg extends ASegment
              * check and append the Pinyin and the synonyms words.
             */
             if ( T == -1 ) {
-                appendWordFeatures(w);
+//                appendWordFeatures(w);//xwz
             }
         }
         
@@ -305,7 +305,7 @@ public class ComplexSeg extends ASegment
         
         return wordPool.remove();
     }
-
+    
     /**
      * @see ASegment#getBestCJKChunk(char[], int) 
      */
@@ -409,7 +409,9 @@ public class ComplexSeg extends ASegment
         }
         
         //consider this as the final rule
-        return afterChunks[0];
+        //Change it to return the last chunk at 2017/07/04
+        //return afterChunks[0];
+        return afterChunks[afterChunks.length - 1];
     }
     
 }

@@ -63,6 +63,8 @@ public abstract class ASegment implements ISegment
     protected ADictionary dic;
     protected JcsegTaskConfig config;
     
+    private static int lengthTmp;//xwz
+    
     /**
      * initialize the segment
      * 
@@ -737,12 +739,31 @@ public abstract class ASegment implements ISegment
     protected void appendWordFeatures( IWord word )
     {
         //add the pinyin to the pool
-        if ( config.APPEND_CJK_PINYIN 
+        /*if ( config.APPEND_CJK_PINYIN 
                 && config.LOAD_CJK_PINYIN && word.getPinyin() != null ) {
             IWord pinyin = new Word(word.getPinyin(), IWord.T_CJK_PINYIN);
             pinyin.setPosition(word.getPosition());
             pinyin.setEntity(word.getEntity());
             wordPool.add(pinyin);
+        }*/
+    	
+    	if ( config.APPEND_CJK_PINYIN 
+                && config.LOAD_CJK_PINYIN && word.getPinyin() != null ) {//xwz
+   		 lengthTmp = word.getLength();
+   		 String pinyinTotal = word.getPinyin();
+   		 if (pinyinTotal.contains(" ")) {
+   			 IWord pinyin = new Word(pinyinTotal.replace(" ", ""), IWord.T_CJK_PINYIN);
+       		 pinyin.setLength(lengthTmp);
+                pinyin.setPosition(word.getPosition());
+                pinyin.setEntity(word.getEntity());
+                wordPool.add(pinyin);			 
+   		 } else {
+   			 IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
+       		 pinyin.setLength(lengthTmp);
+                pinyin.setPosition(word.getPosition());
+                pinyin.setEntity(word.getEntity());
+                wordPool.add(pinyin);
+   		 } 		 
         }
         
         //add the synonyms words to the pool
