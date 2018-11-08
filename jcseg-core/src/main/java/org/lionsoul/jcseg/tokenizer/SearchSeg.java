@@ -46,6 +46,14 @@ public class SearchSeg extends ASegment
         ArrayList<IWord> mList = new ArrayList<IWord>(8);
         
         while ( cjkidx < chars.length ) {
+        	/// @Note added at 2017/04/29
+            /// check and append the single char word
+            String sstr = String.valueOf(chars[cjkidx]);//xwz 2.1.1版本中本没有单字，是2.2.0中新加的特性，但是根据需求要提前添加，且会产生重复拆除bug，下面也做了提前修复
+            if ( dic.match(ILexicon.CJK_WORD, sstr) ) {
+                IWord sWord = dic.get(ILexicon.CJK_WORD, sstr).clone();
+                sWord.setPosition(pos+cjkidx);
+                mList.add(sWord);
+            }
             mnum = 0;
             isb.clear().append(chars[cjkidx]);
             //System.out.println("ignore idx: " + ignidx);
@@ -67,7 +75,7 @@ public class SearchSeg extends ASegment
              * should the current character chars[cjkidx] be a single word ?
              * lets do the current check 
             */
-            if ( mnum == 0 && (cjkidx == 0 || cjkidx > ignidx) ) {
+          /*  if ( mnum == 0 && (cjkidx == 0 || cjkidx > ignidx) ) {
                 String temp = String.valueOf(chars[cjkidx]);
                 if ( dic.match(ILexicon.CJK_WORD, temp) == false ) {
                     word = new Word(temp, ILexicon.UNMATCH_CJK_WORD);
@@ -79,12 +87,17 @@ public class SearchSeg extends ASegment
                     mList.add(word);
                     appendWordFeatures(word);
                 }
+            }*/
+            if ( mnum == 0 && (cjkidx == 0 || cjkidx > ignidx) ) {//这是2.3.0修复的bug，在这里提前修复
+                String temp = String.valueOf(chars[cjkidx]);
+                if ( ! dic.match(ILexicon.CJK_WORD, temp) ) {
+                    word = new Word(temp, ILexicon.UNMATCH_CJK_WORD);
+                    word.setPosition(pos+cjkidx);
+                    mList.add(word);
+                }
             }
             
             cjkidx++;
-            if ( cjkidx > chars.length ) {
-                break;
-            }
         }
         
         /*
