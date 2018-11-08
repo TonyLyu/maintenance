@@ -82,7 +82,10 @@ public abstract class ADictionary
     public void load( String file ) 
             throws NumberFormatException, FileNotFoundException, IOException
     {
-        loadWords(config, this, file);
+    	File testFile = new File(file);
+    	if(testFile.exists()) {
+    		loadWords(config, this, file);
+    	}  
     }
     
     /**
