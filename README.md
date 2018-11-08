@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# maintenance
-for study
-=======
 
 ![Jcseg logo](http://dongyado.github.io/images/logo-x56.png)
 
@@ -980,4 +976,3 @@ List<String> keyphrases = extractor.getKeyphrase(new StringReader(str));
 
 
 > This is the end line and thanks for reading !!!
->>>>>>> 2.1.1 release
