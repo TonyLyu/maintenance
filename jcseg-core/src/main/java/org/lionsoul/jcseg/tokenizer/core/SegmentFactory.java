@@ -4,10 +4,12 @@ import java.io.Reader;
 import java.lang.reflect.Constructor;
 
 import org.lionsoul.jcseg.tokenizer.ComplexSeg;
+import org.lionsoul.jcseg.tokenizer.ComplexSoSeg;
 import org.lionsoul.jcseg.tokenizer.DelimiterSeg;
 import org.lionsoul.jcseg.tokenizer.DetectSeg;
 import org.lionsoul.jcseg.tokenizer.NLPSeg;
 import org.lionsoul.jcseg.tokenizer.SearchSeg;
+import org.lionsoul.jcseg.tokenizer.SearchSoSeg;
 import org.lionsoul.jcseg.tokenizer.SimpleSeg;
 
 /**
@@ -62,11 +64,17 @@ public class SegmentFactory
         case JcsegTaskConfig.COMPLEX_MODE:
             _clsname = ComplexSeg.class;
             break;
+        case JcsegTaskConfig.COMPLEXSO_MODE://xwz
+            _clsname = ComplexSoSeg.class;
+            break;
         case JcsegTaskConfig.DETECT_MODE:
             _clsname = DetectSeg.class;
             break;
         case JcsegTaskConfig.SEARCH_MODE:
             _clsname = SearchSeg.class;
+            break;
+        case JcsegTaskConfig.SEARCHSO_MODE://xwz
+            _clsname = SearchSoSeg.class;
             break;
         case JcsegTaskConfig.DELIMITER_MODE:
             _clsname = DelimiterSeg.class;
