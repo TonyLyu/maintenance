@@ -15,6 +15,8 @@ import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegNLPAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegNoOpTokenFilterFactory;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegSearchAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegSearchSoAnalyzerProvider;
+import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegSearchupAnalyzerProvider;
+import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegSearchupSoAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegSimpleAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegTokenizerTokenizerFactory;
 
@@ -46,6 +48,8 @@ public class AnalysisJcsegPlugin extends Plugin implements AnalysisPlugin
         Map<String, AnalysisProvider<AnalyzerProvider<? extends Analyzer>>> analyzers = new HashMap<>();
         AnalysisProvider<AnalyzerProvider<? extends Analyzer>> searchAnalyzerProvider = JcsegSearchAnalyzerProvider::new;
         AnalysisProvider<AnalyzerProvider<? extends Analyzer>> searchSoAnalyzerProvider = JcsegSearchSoAnalyzerProvider::new;//xwz
+        AnalysisProvider<AnalyzerProvider<? extends Analyzer>> searchupAnalyzerProvider = JcsegSearchupAnalyzerProvider::new;//xwz
+        AnalysisProvider<AnalyzerProvider<? extends Analyzer>> searchupSoAnalyzerProvider = JcsegSearchupSoAnalyzerProvider::new;//xwz
         analyzers.put("jcseg", searchAnalyzerProvider);
         analyzers.put("jcseg_simple", JcsegSimpleAnalyzerProvider::new);
         analyzers.put("jcseg_complex", JcsegComplexAnalyzerProvider::new);
@@ -53,6 +57,8 @@ public class AnalysisJcsegPlugin extends Plugin implements AnalysisPlugin
         analyzers.put("jcseg_detect", JcsegDetectAnalyzerProvider::new);
         analyzers.put("jcseg_search", searchAnalyzerProvider);
         analyzers.put("jcseg_searchso", searchSoAnalyzerProvider);//xwz
+        analyzers.put("jcseg_searchup", searchupAnalyzerProvider);//xwz
+        analyzers.put("jcseg_searchupso", searchupSoAnalyzerProvider);//xwz
         analyzers.put("jcseg_nlp", JcsegNLPAnalyzerProvider::new);
         analyzers.put("jcseg_delimiter", JcsegDelimiterAnalyzerProvider::new);
         return analyzers;
