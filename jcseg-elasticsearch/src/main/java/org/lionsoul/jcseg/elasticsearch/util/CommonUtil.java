@@ -53,6 +53,10 @@ public class CommonUtil
             mode = JcsegTaskConfig.COMPLEXSO_MODE;
         } else if ( "delimiter".equals(seg_mode) ) {
             mode = JcsegTaskConfig.DELIMITER_MODE;
+        } else if ( "searchup".equals(seg_mode) ) {
+            mode = JcsegTaskConfig.SEARCHUP_MODE;
+        } else if ( "searchupso".equals(seg_mode) ) {
+            mode = JcsegTaskConfig.SEARCHUPSO_MODE;
         }
         
         return mode;
