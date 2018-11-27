@@ -63,8 +63,6 @@ public abstract class ASegment implements ISegment
     protected ADictionary dic;
     protected JcsegTaskConfig config;
     
-    private static int lengthTmp;//xwz
-    
     /**
      * initialize the segment
      * 
@@ -749,20 +747,21 @@ public abstract class ASegment implements ISegment
     	
     	if ( config.APPEND_CJK_PINYIN 
                 && config.LOAD_CJK_PINYIN && word.getPinyin() != null ) {//xwz
-   		 lengthTmp = word.getLength();
+    	 int termLengthTmp = word.getLength();
    		 String pinyinTotal = word.getPinyin();
    		 if (pinyinTotal.contains(" ")) {
-   			 IWord pinyin = new Word(pinyinTotal.replace(" ", ""), IWord.T_CJK_PINYIN);
-       		 pinyin.setLength(lengthTmp);
-                pinyin.setPosition(word.getPosition());
-                pinyin.setEntity(word.getEntity());
-                wordPool.add(pinyin);			 
+   			 pinyinTotal = pinyinTotal.replace(" ", "");
+   			 IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
+       		 pinyin.setLength(termLengthTmp);
+             pinyin.setPosition(word.getPosition());
+             pinyin.setEntity(word.getEntity());
+             wordPool.add(pinyin);			 
    		 } else {
    			 IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
-       		 pinyin.setLength(lengthTmp);
-                pinyin.setPosition(word.getPosition());
-                pinyin.setEntity(word.getEntity());
-                wordPool.add(pinyin);
+       		 pinyin.setLength(termLengthTmp);
+             pinyin.setPosition(word.getPosition());
+             pinyin.setEntity(word.getEntity());
+             wordPool.add(pinyin);
    		 } 		 
         }
         
