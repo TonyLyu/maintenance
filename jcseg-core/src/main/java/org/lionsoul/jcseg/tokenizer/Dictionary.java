@@ -233,8 +233,9 @@ public class Dictionary extends ADictionary
    						
    						
    						//load words from the lexion files
+   						BufferedReader reader = null;
    						try{
-   							BufferedReader reader = new BufferedReader(new FileReader(f));
+   							reader = new BufferedReader(new FileReader(f));
    							String line = null;
    							while((line = reader.readLine()) != null){
    								line = line.trim();
@@ -273,6 +274,12 @@ public class Dictionary extends ADictionary
    									System.out.println("jcseg make ferror failed: reason is : " + e1.getMessage());
    								}
    							}
+   						} finally {
+   							try {
+								reader.close();
+							} catch (IOException e) {
+								System.out.println("关闭文件流发生异常 : " + e.getMessage());
+							}
    						}
    						/**
    						 * update the last update time
