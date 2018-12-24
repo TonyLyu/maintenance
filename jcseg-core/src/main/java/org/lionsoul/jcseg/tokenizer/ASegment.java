@@ -845,12 +845,12 @@ public abstract class ASegment implements ISegment
              * EN_LETTER, EN_NUMERIC, EN_PUNCTUATION.
             */
             _ctype = StringUtil.getEnCharType(chars[j]);
-           /* if ( _ctype == StringUtil.EN_PUNCTUATION ) {//源码本身的
+            if ( _ctype == StringUtil.EN_PUNCTUATION ) {//源码本身的
                 _TYPE = StringUtil.EN_PUNCTUATION;
                 p++;
                 continue;
-            }*/
-            if ( _ctype == StringUtil.EN_PUNCTUATION ) {//修复0.96%不能拆除0.96的BUG
+            }
+            /*if ( _ctype == StringUtil.EN_PUNCTUATION ) {//修复0.96%不能拆除0.96的BUG
             	if (chars[j] == '.') {//xwz
             		isb.append(chars[j]);
             	} else {
@@ -858,7 +858,7 @@ public abstract class ASegment implements ISegment
             		 p++;
             	}
                 continue;
-            }
+            }*/
             
             if ( _ctype == _TYPE ) {
                 isb.append(chars[j]);
