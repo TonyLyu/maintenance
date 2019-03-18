@@ -14,7 +14,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
  * search mode implementation all the possible combination will be returned, 
  * and build it for information retrieval of course.
  * 
- * @author  xwz
+ * @author xwz
 */
 public class SearchSoSeg extends ASegment
 {
