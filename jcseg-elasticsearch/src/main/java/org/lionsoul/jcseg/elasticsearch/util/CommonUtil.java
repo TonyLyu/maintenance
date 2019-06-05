@@ -8,8 +8,8 @@ public class CommonUtil
     /**
      * The default jcseg configuration file 
     */
-//    public static final String JcsegConfigFile = "plugins/jcseg/jcseg.properties";
-	public static final String JcsegConfigFile = "jcseg/jcseg.properties";//xwz
+    public static final String JcsegConfigFile = "plugins/jcseg/jcseg.properties";
+//	public static final String JcsegConfigFile = "jcseg/jcseg.properties";//xwz
     
     /**
      * get the sementation mode and default to COMPLEX_MODE
