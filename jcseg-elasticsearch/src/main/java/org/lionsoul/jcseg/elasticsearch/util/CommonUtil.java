@@ -48,7 +48,7 @@ public class CommonUtil
         } else if ( "nlp".equals(seg_mode) ){
             mode = JcsegTaskConfig.NLP_MODE;
         } else if ( "searchso".equals(seg_mode) ){//xwz
-            mode = JcsegTaskConfig.SEARCHSO_MODE;
+            mode = JcsegTaskConfig.SEARCHPIN_MODE;
         } else if ( "complexso".equals(seg_mode) ){//xwz
             mode = JcsegTaskConfig.COMPLEXSO_MODE;
         } else if ( "delimiter".equals(seg_mode) ) {

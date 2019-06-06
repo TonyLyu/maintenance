@@ -9,7 +9,7 @@ import org.lionsoul.jcseg.tokenizer.DelimiterSeg;
 import org.lionsoul.jcseg.tokenizer.DetectSeg;
 import org.lionsoul.jcseg.tokenizer.NLPSeg;
 import org.lionsoul.jcseg.tokenizer.SearchSeg;
-import org.lionsoul.jcseg.tokenizer.SearchSoSeg;
+import org.lionsoul.jcseg.tokenizer.SearchPinSeg;
 import org.lionsoul.jcseg.tokenizer.SearchupSeg;
 import org.lionsoul.jcseg.tokenizer.SearchupSoSeg;
 import org.lionsoul.jcseg.tokenizer.SimpleSeg;
@@ -75,8 +75,8 @@ public class SegmentFactory
         case JcsegTaskConfig.SEARCH_MODE:
             _clsname = SearchSeg.class;
             break;
-        case JcsegTaskConfig.SEARCHSO_MODE://xwz
-            _clsname = SearchSoSeg.class;
+        case JcsegTaskConfig.SEARCHPIN_MODE://xwz
+            _clsname = SearchPinSeg.class;
             break;
         case JcsegTaskConfig.DELIMITER_MODE:
             _clsname = DelimiterSeg.class;
