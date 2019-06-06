@@ -16,15 +16,15 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
  * 
  * @author  xwz
 */
-public class SearchupSoSeg extends ASegment
+public class SearchupPinSeg extends ASegment
 {
     
-    public SearchupSoSeg(JcsegTaskConfig config, ADictionary dic) throws IOException
+    public SearchupPinSeg(JcsegTaskConfig config, ADictionary dic) throws IOException
     {
         super(config, dic);
     }
     
-    public SearchupSoSeg(Reader input, JcsegTaskConfig config, ADictionary dic) throws IOException
+    public SearchupPinSeg(Reader input, JcsegTaskConfig config, ADictionary dic) throws IOException
     {
         super(input, config, dic);
     }
@@ -124,7 +124,7 @@ public class SearchupSoSeg extends ASegment
             }
             
             wordPool.add(w);
-//            appendWordFeatures(w);//xwz--注释掉追加拼音
+            appendWordFeatures(w);
         }
         
         //let gc do its work

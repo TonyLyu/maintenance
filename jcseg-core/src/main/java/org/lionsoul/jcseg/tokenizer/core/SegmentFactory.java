@@ -11,7 +11,7 @@ import org.lionsoul.jcseg.tokenizer.NLPSeg;
 import org.lionsoul.jcseg.tokenizer.SearchSeg;
 import org.lionsoul.jcseg.tokenizer.SearchPinSeg;
 import org.lionsoul.jcseg.tokenizer.SearchupSeg;
-import org.lionsoul.jcseg.tokenizer.SearchupSoSeg;
+import org.lionsoul.jcseg.tokenizer.SearchupPinSeg;
 import org.lionsoul.jcseg.tokenizer.SimpleSeg;
 
 /**
@@ -87,8 +87,8 @@ public class SegmentFactory
         case JcsegTaskConfig.SEARCHUP_MODE:
             _clsname = SearchupSeg.class;
             break;
-        case JcsegTaskConfig.SEARCHUPSO_MODE:
-            _clsname = SearchupSoSeg.class;
+        case JcsegTaskConfig.SEARCHUPPIN_MODE:
+            _clsname = SearchupPinSeg.class;
             break;
         default:
             throw new JcsegException("No Such Algorithm Excpetion");

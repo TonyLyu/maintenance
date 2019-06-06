@@ -124,7 +124,7 @@ public class SearchupSeg extends ASegment
             }
             
             wordPool.add(w);
-            appendWordFeatures(w);
+//            appendWordFeatures(w);//xwz--注释掉追加拼音
         }
         
         //let gc do its work

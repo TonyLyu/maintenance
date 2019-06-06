@@ -10,9 +10,9 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
  * 
  * @author xwz
  */
-public class JcsegSearchupSoAnalyzerProvider extends JcsegAnalyzerProvider
+public class JcsegSearchupPinAnalyzerProvider extends JcsegAnalyzerProvider
 {
-    public JcsegSearchupSoAnalyzerProvider(IndexSettings indexSettings,
+    public JcsegSearchupPinAnalyzerProvider(IndexSettings indexSettings,
             Environment env, String name, Settings settings)
     {
         super(indexSettings, env, name, settings);
@@ -21,7 +21,7 @@ public class JcsegSearchupSoAnalyzerProvider extends JcsegAnalyzerProvider
     @Override
     protected int getSegMode()
     {
-        return JcsegTaskConfig.SEARCHUPSO_MODE;
+        return JcsegTaskConfig.SEARCHUPPIN_MODE;
     }
     
 }

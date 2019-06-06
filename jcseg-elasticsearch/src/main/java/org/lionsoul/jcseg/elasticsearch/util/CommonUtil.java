@@ -56,7 +56,7 @@ public class CommonUtil
         } else if ( "searchup".equals(seg_mode) ) {
             mode = JcsegTaskConfig.SEARCHUP_MODE;
         } else if ( "searchupso".equals(seg_mode) ) {
-            mode = JcsegTaskConfig.SEARCHUPSO_MODE;
+            mode = JcsegTaskConfig.SEARCHUPPIN_MODE;
         }
         
         return mode;
