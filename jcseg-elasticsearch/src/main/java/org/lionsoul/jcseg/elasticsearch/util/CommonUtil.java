@@ -47,15 +47,13 @@ public class CommonUtil
             mode = JcsegTaskConfig.SEARCH_MODE;
         } else if ( "nlp".equals(seg_mode) ){
             mode = JcsegTaskConfig.NLP_MODE;
-        } else if ( "searchso".equals(seg_mode) ){//xwz
+        } else if ( "searchpin".equals(seg_mode) ){//xwz
             mode = JcsegTaskConfig.SEARCHPIN_MODE;
-        } else if ( "complexso".equals(seg_mode) ){//xwz
-            mode = JcsegTaskConfig.COMPLEXSO_MODE;
         } else if ( "delimiter".equals(seg_mode) ) {
             mode = JcsegTaskConfig.DELIMITER_MODE;
-        } else if ( "searchup".equals(seg_mode) ) {
+        } else if ( "searchup".equals(seg_mode) ) {//xwz
             mode = JcsegTaskConfig.SEARCHUP_MODE;
-        } else if ( "searchupso".equals(seg_mode) ) {
+        } else if ( "searchuppin".equals(seg_mode) ) {//xwz
             mode = JcsegTaskConfig.SEARCHUPPIN_MODE;
         }
         

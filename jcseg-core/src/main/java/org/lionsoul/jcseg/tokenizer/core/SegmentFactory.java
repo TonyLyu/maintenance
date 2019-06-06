@@ -4,7 +4,6 @@ import java.io.Reader;
 import java.lang.reflect.Constructor;
 
 import org.lionsoul.jcseg.tokenizer.ComplexSeg;
-import org.lionsoul.jcseg.tokenizer.ComplexSoSeg;
 import org.lionsoul.jcseg.tokenizer.DelimiterSeg;
 import org.lionsoul.jcseg.tokenizer.DetectSeg;
 import org.lionsoul.jcseg.tokenizer.NLPSeg;
@@ -65,9 +64,6 @@ public class SegmentFactory
             break;
         case JcsegTaskConfig.COMPLEX_MODE:
             _clsname = ComplexSeg.class;
-            break;
-        case JcsegTaskConfig.COMPLEXSO_MODE://xwz
-            _clsname = ComplexSoSeg.class;
             break;
         case JcsegTaskConfig.DETECT_MODE:
             _clsname = DetectSeg.class;

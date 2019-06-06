@@ -8,7 +8,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 /**
  * Jcseg simple Analyzer Provider
  * 
- * @author chenxin<chenxin619315@gmail.com>
+ * @author xwz
  */
 public class JcsegSearchupAnalyzerProvider extends JcsegAnalyzerProvider
 {

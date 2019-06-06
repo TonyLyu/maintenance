@@ -8,7 +8,6 @@ import org.elasticsearch.indices.analysis.AnalysisModule.AnalysisProvider;
 import org.elasticsearch.plugins.AnalysisPlugin;
 import org.elasticsearch.plugins.Plugin;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegComplexAnalyzerProvider;
-import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegComplexSoAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegDelimiterAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegDetectAnalyzerProvider;
 import org.lionsoul.jcseg.elasticsearch.index.analysis.JcsegNLPAnalyzerProvider;
@@ -53,7 +52,6 @@ public class AnalysisJcsegPlugin extends Plugin implements AnalysisPlugin
         analyzers.put("jcseg", searchAnalyzerProvider);
         analyzers.put("jcseg_simple", JcsegSimpleAnalyzerProvider::new);
         analyzers.put("jcseg_complex", JcsegComplexAnalyzerProvider::new);
-        analyzers.put("jcseg_complexso", JcsegComplexSoAnalyzerProvider::new);//xwz
         analyzers.put("jcseg_detect", JcsegDetectAnalyzerProvider::new);
         analyzers.put("jcseg_search", searchAnalyzerProvider);
         analyzers.put("jcseg_searchpin", searchPinAnalyzerProvider);//xwz
