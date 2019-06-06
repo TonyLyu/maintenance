@@ -113,7 +113,7 @@ public class SearchSeg extends ASegment
             }
             
             wordPool.add(w);
-            appendWordFeatures(w);
+//            appendWordFeatures(w);//xwz--检索的时候不追加拼音
         }
         
         //let gc do its work
