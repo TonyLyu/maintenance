@@ -748,20 +748,23 @@ public abstract class ASegment implements ISegment
                 && config.LOAD_CJK_PINYIN && word.getPinyin() != null ) {//xwz
     	 int termLengthTmp = word.getLength();
    		 String pinyinTotal = word.getPinyin();
-   		 if (pinyinTotal.contains(" ")) {
-   			 pinyinTotal = pinyinTotal.replace(" ", "");
-   			 IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
-       		 pinyin.setLength(termLengthTmp);
-             pinyin.setPosition(word.getPosition());
-             pinyin.setEntity(word.getEntity());
-             wordPool.add(pinyin);			 
-   		 } else {
-   			 IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
-       		 pinyin.setLength(termLengthTmp);
-             pinyin.setPosition(word.getPosition());
-             pinyin.setEntity(word.getEntity());
-             wordPool.add(pinyin);
-   		 } 		 
+            String[] pinyinArray = pinyinTotal.split("\\,");
+            for(String s : pinyinArray) {
+                if (pinyinTotal.contains(" ")) {
+                    pinyinTotal = pinyinTotal.replace(" ", "");
+                    IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
+                    pinyin.setLength(termLengthTmp);
+                    pinyin.setPosition(word.getPosition());
+                    pinyin.setEntity(word.getEntity());
+                    wordPool.add(pinyin);
+                } else {
+                    IWord pinyin = new Word(pinyinTotal, IWord.T_CJK_PINYIN);
+                    pinyin.setLength(termLengthTmp);
+                    pinyin.setPosition(word.getPosition());
+                    pinyin.setEntity(word.getEntity());
+                    wordPool.add(pinyin);
+                }
+            }
         }
         
         //add the synonyms words to the pool
